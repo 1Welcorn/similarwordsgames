@@ -8,7 +8,7 @@ export const WORDS: Word[] = [
         type: "Preposição",
         meaning: "Através de (movimento ou tempo).",
         image: "https://raw.githubusercontent.com/1Welcorn/assetsforsimilarwordsmemorygames/main/through.png",
-        audio: "https://raw.githubusercontent.com/1Welcorn/assetsforsimilarwordsmemorygames/main/through.wav",
+        audio: "https://cdn.jsdelivr.net/gh/1Welcorn/assetsforsimilarwordsmemorygames@main/through.wav",
         example: "I walked through the forest."
     },
     {
@@ -17,7 +17,7 @@ export const WORDS: Word[] = [
         type: "Conjunção",
         meaning: "Embora, apesar de.",
         image: "https://raw.githubusercontent.com/1Welcorn/assetsforsimilarwordsmemorygames/main/though.png",
-        audio: "https://raw.githubusercontent.com/1Welcorn/assetsforsimilarwordsmemorygames/main/though.wav",
+        audio: "https://cdn.jsdelivr.net/gh/1Welcorn/assetsforsimilarwordsmemorygames@main/though.wav",
         example: "Though it's raining, I'll go out."
     },
     {
@@ -26,7 +26,7 @@ export const WORDS: Word[] = [
         type: "Adjetivo",
         meaning: "Difícil, resistente, corajoso.",
         image: "https://raw.githubusercontent.com/1Welcorn/assetsforsimilarwordsmemorygames/main/tough.png",
-        audio: "https://raw.githubusercontent.com/1Welcorn/assetsforsimilarwordsmemorygames/main/tough.wav",
+        audio: "https://cdn.jsdelivr.net/gh/1Welcorn/assetsforsimilarwordsmemorygames@main/tough.wav",
         example: "This exam was really tough."
     },
     {
@@ -35,7 +35,7 @@ export const WORDS: Word[] = [
         type: "Substantivo/Verbo",
         meaning: "Pensamento ou passado de 'Think'.",
         image: "https://raw.githubusercontent.com/1Welcorn/assetsforsimilarwordsmemorygames/main/thought.png",
-        audio: "https://raw.githubusercontent.com/1Welcorn/assetsforsimilarwordsmemorygames/main/thought.wav",
+        audio: "https://cdn.jsdelivr.net/gh/1Welcorn/assetsforsimilarwordsmemorygames@main/thought.wav",
         example: "I thought about you yesterday."
     },
     {
@@ -44,7 +44,7 @@ export const WORDS: Word[] = [
         type: "Adjetivo",
         meaning: "Minucioso, detalhado, completo.",
         image: "https://raw.githubusercontent.com/1Welcorn/assetsforsimilarwordsmemorygames/main/thorough.png",
-        audio: "https://raw.githubusercontent.com/1Welcorn/assetsforsimilarwordsmemorygames/main/thorough.wav",
+        audio: "https://cdn.jsdelivr.net/gh/1Welcorn/assetsforsimilarwordsmemorygames@main/thorough.wav",
         example: "She did a thorough investigation."
     },
     {
@@ -53,7 +53,7 @@ export const WORDS: Word[] = [
         type: "Preposição/Advérbio",
         meaning: "Por toda parte, durante todo (o tempo).",
         image: "https://raw.githubusercontent.com/1Welcorn/assetsforsimilarwordsmemorygames/main/throughout.png",
-        audio: "https://raw.githubusercontent.com/1Welcorn/assetsforsimilarwordsmemorygames/main/throughout.wav",
+        audio: "https://cdn.jsdelivr.net/gh/1Welcorn/assetsforsimilarwordsmemorygames@main/throughout.wav",
         example: "It rained throughout the day."
     }
 ];
