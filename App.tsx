@@ -173,7 +173,7 @@ const App: React.FC = () => {
             }
             setFlippedCardIndices([]);
             setLockBoard(false);
-        }, 1200);
+        }, 3200);
 
         return () => clearTimeout(timeoutId);
 
@@ -341,8 +341,8 @@ const App: React.FC = () => {
                 if (!prev.includes(wordId)) {
                     if (gameMode === 'pair') {
                         setScores(s => ({...s, [currentPlayer]: s[currentPlayer] + 1}));
-                        setCurrentPlayer(prev => (prev === 1 ? 2 : 1));
                     }
+                    setCurrentPlayer(prev => (prev === 1 ? 2 : 1));
                     return [...prev, wordId];
                 }
                 return prev;

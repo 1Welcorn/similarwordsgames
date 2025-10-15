@@ -66,18 +66,18 @@ const Card: React.FC<CardProps> = ({ cardData, isFlipped, isMatched, onClick, le
 
     return (
         <div 
-            className={`relative w-full h-full cursor-pointer transition-all duration-300
+            className={`relative w-full h-full cursor-pointer transition-all duration-300 overflow-hidden border-2 border-cyan-400 transform -skew-y-2
                 ${isMatched ? 'opacity-50 cursor-default' : 'hover:-translate-y-2 hover:shadow-2xl'}
                 ${level === 1 ? 'rounded-none' : 'rounded-lg'}
             `}
             onClick={handleCardClick}
         >
             {isRevealed ? (
-                <div className="w-full h-full rounded-lg flex items-center justify-center p-2 box-border bg-gray-200 text-gray-800">
+                <div className="w-full h-full flex items-center justify-center p-2 box-border bg-gray-200 text-gray-800 transform skew-y-2">
                     {getCardContent()}
                 </div>
             ) : (
-                <div className="w-full h-full rounded-lg flex items-center justify-center p-2 box-border bg-indigo-500 text-white text-3xl md:text-5xl font-bold">
+                <div className="w-full h-full flex items-center justify-center p-2 box-border bg-indigo-500 text-white text-3xl md:text-5xl font-bold transform skew-y-2">
                     ?
                 </div>
             )}
