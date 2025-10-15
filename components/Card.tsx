@@ -5,19 +5,18 @@ interface CardProps {
     cardData: CardData;
     isFlipped: boolean;
     isMatched: boolean;
-    onClick: (uniqueId: number) => void;
+    onClick: () => void;
     level: number;
 }
 
 const Card: React.FC<CardProps> = ({ cardData, isFlipped, isMatched, onClick, level }) => {
-    const { uniqueId, type, content, image, audio, word } = cardData;
+    const { type, content, image, audio, word } = cardData;
 
     const isRevealed = isFlipped || isMatched;
-    const isSpecialCard = (level === 2 && type === 'definition') || (level === 3 && (type === 'audio' || type === 'definition'));
 
     const handleCardClick = () => {
         if (!isRevealed) {
-            onClick(uniqueId);
+            onClick();
         }
     };
     
@@ -29,19 +28,12 @@ const Card: React.FC<CardProps> = ({ cardData, isFlipped, isMatched, onClick, le
         }
     };
 
-    const cardBaseClasses = "card-face absolute w-full h-full backface-hidden rounded-lg flex items-center justify-center p-2 box-border";
-
-    const getCardBackContent = () => {
+    const getCardContent = () => {
         switch (type) {
             case 'image':
                 return (
                     <div className="relative w-full h-full">
                         <img src={image} alt={content} className="w-full h-full object-contain" />
-                        {audio && (
-                           <button onClick={handleAudioClick} className="absolute bottom-2 right-2 bg-black/60 text-white p-2 rounded-full z-10 hover:bg-black transition-colors">
-                                🎧
-                            </button>
-                        )}
                     </div>
                 );
             case 'audio':
@@ -74,22 +66,21 @@ const Card: React.FC<CardProps> = ({ cardData, isFlipped, isMatched, onClick, le
 
     return (
         <div 
-            className={`relative w-full h-full cursor-pointer transition-transform duration-500 preserve-3d
+            className={`relative w-full h-full cursor-pointer transition-all duration-300
                 ${isMatched ? 'opacity-50 cursor-default' : 'hover:-translate-y-2 hover:shadow-2xl'}
                 ${level === 1 ? 'rounded-none' : 'rounded-lg'}
             `}
             onClick={handleCardClick}
         >
-            <div className={`relative w-full h-full transition-transform duration-500 preserve-3d ${isRevealed && !isSpecialCard ? 'rotate-y-180' : ''}`}>
-                {/* Card Front */}
-                <div className={`${cardBaseClasses} bg-indigo-500 text-white text-3xl md:text-5xl font-bold ${isRevealed ? (isSpecialCard ? 'hidden' : '') : ''}`}>
+            {isRevealed ? (
+                <div className="w-full h-full rounded-lg flex items-center justify-center p-2 box-border bg-gray-200 text-gray-800">
+                    {getCardContent()}
+                </div>
+            ) : (
+                <div className="w-full h-full rounded-lg flex items-center justify-center p-2 box-border bg-indigo-500 text-white text-3xl md:text-5xl font-bold">
                     ?
                 </div>
-                {/* Card Back */}
-                <div className={`${cardBaseClasses} bg-gray-200 text-gray-800 ${isSpecialCard ? '' : 'rotate-y-180'} ${isRevealed ? 'flex' : 'hidden'}`}>
-                    {getCardBackContent()}
-                </div>
-            </div>
+            )}
         </div>
     );
 };

@@ -6,7 +6,7 @@ interface GameBoardProps {
     cards: CardData[];
     flippedCardIndices: number[];
     matchedCardIds: number[];
-    onCardClick: (uniqueId: number) => void;
+    onCardClick: (index: number) => void;
     currentLevel: number;
 }
 
