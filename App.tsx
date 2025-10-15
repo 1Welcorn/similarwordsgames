@@ -143,7 +143,8 @@ const App: React.FC = () => {
         };
     }, [timerActive]);
 
-    const checkMatch = useCallback(() => {
+    // Effect to check for matches in memory games
+    useEffect(() => {
         const checkCount = currentLevel === 3 ? 3 : 2;
         if (flippedCardIndices.length !== checkCount) return;
 
@@ -152,7 +153,7 @@ const App: React.FC = () => {
         const flipped = flippedCardIndices.map(index => cards[index]);
         const isMatch = flipped.every(card => card.id === flipped[0].id);
 
-        setTimeout(() => {
+        const timeoutId = setTimeout(() => {
             if (isMatch) {
                 setMatchedCardIds(prev => [...prev, flipped[0].id]);
                 const wordData = wordsForLevel.find(w => w.id === flipped[0].id);
@@ -174,11 +175,9 @@ const App: React.FC = () => {
             setLockBoard(false);
         }, 1200);
 
+        return () => clearTimeout(timeoutId);
+
     }, [flippedCardIndices, cards, currentLevel, gameMode, currentPlayer, wordsForLevel]);
-    
-    useEffect(() => {
-        checkMatch();
-    }, [checkMatch]);
     
     useEffect(() => {
         const totalPairs = 6;
@@ -363,9 +362,6 @@ const App: React.FC = () => {
         @keyframes boardFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
         @keyframes messagePulse { 0% { transform: scale(0.8); opacity: 0; } 50% { transform: scale(1.05); } 100% { transform: scale(1); opacity: 1; } }
         @keyframes playerIndicatorPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-        .preserve-3d { transform-style: preserve-3d; }
-        .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-        .rotate-y-180 { transform: rotateY(180deg); }
     `;
 
 
